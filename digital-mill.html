@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Mill</title>
+  <link rel="stylesheet" href="digital-mill.css">
+</head>
+<body>
+<div class="app-wrapper">
+  <div class="tag">Mill Operations Command Center</div>
+
+  <!-- Date Picker -->
+  <div class="date-picker-wrapper">
+    <div class="date-picker-label">📅 Date</div>
+    <input type="date" class="date-picker" id="datePicker">
+  </div>
+
+  <div class="flow-grid" id="flowGrid">
+    <svg class="connector-svg" id="connectorSvg"></svg>
+
+    <!-- ROW 1: Sauda alone, top-left (col 1, row 1) -->
+    <div class="node" id="node-sauda" data-popup="popup-sauda">
+      <div class="node-badge">1</div>
+      <div class="node-icon">📋</div>
+      <div class="node-label">Sauda</div>
+    </div>
+
+    <!-- BRANCH ABOVE MILL: Breakdown (col 6, row 1) & Power Monitoring (col 6, row 2) -->
+    <div class="node branch-node" id="node-breakdown" data-popup="popup-breakdown">
+      <div class="node-icon">⚠️</div>
+      <div class="node-label">Breakdown</div>
+    </div>
+
+    <div class="node branch-node" id="node-power" data-popup="popup-power">
+      <div class="node-icon">📊</div>
+      <div class="node-label">Power Monitoring</div>
+    </div>
+
+    <!-- ROW 2: Main flow (row 3) -->
+    <div class="node" id="node-weigh" data-popup="popup-weigh">
+      <div class="node-badge">2</div>
+      <div class="node-icon">⚖️</div>
+      <div class="node-label">Weigh Bridge</div>
+    </div>
+
+    <div class="node" id="node-pregate" data-popup="popup-pregate">
+      <div class="node-badge">3</div>
+      <div class="node-icon">📝</div>
+      <div class="node-label">Pre-gate</div>
+    </div>
+
+    <div class="node" id="node-postgate" data-popup="popup-postgate">
+      <div class="node-badge">4</div>
+      <div class="node-icon">🔬</div>
+      <div class="node-label">Post-gate</div>
+    </div>
+
+    <div class="node" id="node-rmwarehouse" data-popup="popup-rmwarehouse">
+      <div class="node-badge">5</div>
+      <div class="node-icon">🏭</div>
+      <div class="node-label">RM Warehouse</div>
+    </div>
+
+    <div class="node" id="node-mill" data-popup="popup-mill">
+      <div class="node-badge">6</div>
+      <div class="node-icon">⚙️</div>
+      <div class="node-label">Mill</div>
+    </div>
+
+    <div class="node" id="node-fg" data-popup="popup-fg">
+      <div class="node-badge">7</div>
+      <div class="node-icon">🧪</div>
+      <div class="node-label">FG Analysis</div>
+    </div>
+
+    <!-- ROW 3: FG Warehouse → Sales (below Mill area) -->
+    <div class="node" id="node-fgwarehouse" data-popup="popup-fgwarehouse">
+      <div class="node-badge">8</div>
+      <div class="node-icon">🏬</div>
+      <div class="node-label">FG Warehouse</div>
+    </div>
+
+    <div class="node" id="node-sales" data-popup="popup-sales">
+      <div class="node-badge">9</div>
+      <div class="node-icon">🛒</div>
+      <div class="node-label">Sales</div>
+    </div>
+
+    <!-- BRANCH BELOW SALES: Customer Complaints & Sales Returns -->
+    <div class="node branch-node" id="node-complaints" data-popup="popup-complaints">
+      <div class="node-icon">😤</div>
+      <div class="node-label">Customer Complaints</div>
+    </div>
+
+    <div class="node branch-node" id="node-returns" data-popup="popup-returns">
+      <div class="node-icon">↩️</div>
+      <div class="node-label">Sales Returns</div>
+    </div>
+
+  </div>
+
+  <!-- Popup containers -->
+  <div class="popup" id="popup-sauda"></div>
+  <div class="popup" id="popup-weigh"></div>
+  <div class="popup" id="popup-pregate"></div>
+  <div class="popup" id="popup-postgate"></div>
+  <div class="popup" id="popup-rmwarehouse"></div>
+  <div class="popup" id="popup-mill"></div>
+  <div class="popup" id="popup-fg"></div>
+  <div class="popup" id="popup-fgwarehouse"></div>
+  <div class="popup" id="popup-sales"></div>
+  <div class="popup arrow-left" id="popup-breakdown"></div>
+  <div class="popup arrow-left" id="popup-power"></div>
+  <div class="popup arrow-left" id="popup-complaints"></div>
+  <div class="popup arrow-left" id="popup-returns"></div>
+
+  <!-- <div class="brand">
+    <div class="brand-dot"></div>
+    <div class="brand-text">DeliverAIn</div>
+  </div> -->
+</div>
+
+<script src="digital-mill.js"></script>
+</body>
+</html>
